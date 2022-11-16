@@ -1,4 +1,4 @@
 global.AppConfig = {
-    serverIp: 'http://bestsellapp-env.eba-snmqqpfh.us-west-2.elasticbeanstalk.com',
+    serverIp: 'http://localhost:8080',
     webIp:'http://localhost:3008'
 }

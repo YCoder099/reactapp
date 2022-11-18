@@ -30,6 +30,7 @@ export default class Login extends Component{
                 "phone": username,
                 "pwd": password
             },
+            {headers:{"X-Requested-With`": "XMLHttpRequest"}},
             {withCredentials: true}
         )
         .then(response => {

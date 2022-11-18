@@ -15,7 +15,7 @@ export default class History extends Component {
     }
 
     componentDidMount() {
-        axios.get(global.AppConfig.serverIp + "/pri/user/list_product_by_user_id",{ withCredentials: true })
+        axios.get(global.AppConfig.serverIp + "/pri/user/list_product_by_user_id",{headers:{"X-Requested-With": "XMLHttpRequest"}}, { withCredentials: true })
           .then((response) => {
             console.log("list_product_by_user_id_Response",response.data);
             this.setState({
@@ -27,7 +27,7 @@ export default class History extends Component {
             console.log("list_product_by_user_id_Error",error);
           })
 
-          axios.get(global.AppConfig.serverIp + "/pri/order/get_product_in_order_history",{ withCredentials: true })
+          axios.get(global.AppConfig.serverIp + "/pri/order/get_product_in_order_history",{headers:{"X-Requested-With": "XMLHttpRequest"}}, { withCredentials: true })
           .then((response) => {
             console.log("get_product_in_order_history_Response",response.data);
             this.setState({

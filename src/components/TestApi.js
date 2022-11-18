@@ -22,7 +22,7 @@ class Welcome extends React.Component {
 
         // const axios = require('axios');
 
-        axios.get(api, headers: {"X-Requested-With": "XMLHttpRequest"})
+        axios.get(api, {headers:{"X-Requested-With`": "XMLHttpRequest"}})
             .then((response) => {
                 console.log(response.data);
 

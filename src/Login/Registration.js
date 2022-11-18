@@ -36,6 +36,7 @@ export default class Registration extends Component{
                 "address": address,
                 "pwd": password
             },
+            {headers:{"X-Requested-With`": "XMLHttpRequest"}},
             {withCredentials: true}
         )
         .then(response => {

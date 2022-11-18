@@ -42,6 +42,7 @@ export default class CartModal extends Component {
         "productId": product.id,
         "userId": this.state.userId
       },
+        {headers:{"X-Requested-With": "XMLHttpRequest"}},
       {withCredentials: true}
     )
     .then((response) => {
@@ -88,7 +89,7 @@ export default class CartModal extends Component {
     }
     
     //load cart from user
-    axios.get(global.AppConfig.serverIp + "/pri/cart/get_cart_by_user", {withCredentials: true})
+    axios.get(global.AppConfig.serverIp + "/pri/cart/get_cart_by_user",{headers:{"X-Requested-With": "XMLHttpRequest"}}, {withCredentials: true})
       .then((response) => {
         console.log("get_cart_by_user_response",response.data);
         let sum = 0;
@@ -104,7 +105,7 @@ export default class CartModal extends Component {
         console.log("get_cart_by_user_Error",error);
       })
 
-    axios.get(global.AppConfig.serverIp + "/pri/cart/get_product_in_cart", {withCredentials: true})
+    axios.get(global.AppConfig.serverIp + "/pri/cart/get_product_in_cart",{headers:{"X-Requested-With": "XMLHttpRequest"}}, {withCredentials: true})
       .then((response2) => {
         console.log("get_product_in_cart_response",response2.data);
         this.setState({
@@ -115,7 +116,7 @@ export default class CartModal extends Component {
         console.log("get_product_in_cart_Error",error);
       })
 
-    axios.get(global.AppConfig.serverIp + "/pri/order/get_total_price", {withCredentials: true})
+    axios.get(global.AppConfig.serverIp + "/pri/order/get_total_price", {headers:{"X-Requested-With": "XMLHttpRequest"}},{withCredentials: true})
       .then((response) => {
         console.log("get_total_price_response",response.data);
         this.setState({
@@ -146,7 +147,7 @@ export default class CartModal extends Component {
   handleCheckOutButton = () => {
     this.setState({disableButton:true});
     axios.post(
-      global.AppConfig.serverIp+"/pri/order/place_order", {}, {withCredentials: true}
+      global.AppConfig.serverIp+"/pri/order/place_order", {}, {headers:{"X-Requested-With": "XMLHttpRequest"}},{withCredentials: true}
     )
     .then((response)  => {
       console.log("place_order_response",response);

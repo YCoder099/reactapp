@@ -40,7 +40,7 @@ export default class App extends React.Component {
     }
 
     axios.get(global.AppConfig.serverIp + "/pub/product/list_all_product",
-     {headers:{"X-Requested-With`": "XMLHttpRequest"}}
+     {headers:{"X-Requested-With": "XMLHttpRequest"}}
     ).then((response) => {
         console.log("List_All_Products_Response",response.data);
         let sortedProducts = response.data.data.slice().sort((a,b) =>(
@@ -56,7 +56,7 @@ export default class App extends React.Component {
       })
 
     //load cart from user & check login status
-    axios.get(global.AppConfig.serverIp + "/pri/cart/get_cart_by_user", {withCredentials: true})
+    axios.get(global.AppConfig.serverIp + "/pri/cart/get_cart_by_user", {headers:{"X-Requested-With": "XMLHttpRequest"}}, {withCredentials: true})
       .then((response) => {
         console.log("get_cart_by_user_response",response.data);
         if(response.data.code === -1){
@@ -82,7 +82,7 @@ export default class App extends React.Component {
       })
 
       //get categories from server
-      axios.get(global.AppConfig.serverIp+"/pub/category/get_all_category", { withCredentials: true })
+      axios.get(global.AppConfig.serverIp+"/pub/category/get_all_category", {headers:{"X-Requested-With": "XMLHttpRequest"}}, { withCredentials: true })
       .then((response) => {
           console.log("get_category_Response",response.data);
           this.setState({
@@ -113,6 +113,7 @@ export default class App extends React.Component {
         {
             "productId": product.id
         },
+        {headers:{"X-Requested-With": "XMLHttpRequest"}},
         {withCredentials: true}
       )
       .then((response) => {
@@ -176,7 +177,7 @@ export default class App extends React.Component {
   handleAuthButton  = () => {
     if(this.state.isLoggedIn){
       //request to logout user
-      axios.get(global.AppConfig.serverIp+"/pri/user/logout", { withCredentials: true })
+      axios.get(global.AppConfig.serverIp+"/pri/user/logout", {headers:{"X-Requested-With": "XMLHttpRequest"}}, { withCredentials: true })
       .then((response) => {
         console.log("Logout_Response",response.data);
         Cookies.remove('react-cookie-test');

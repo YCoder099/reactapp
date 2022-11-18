@@ -39,8 +39,9 @@ export default class App extends React.Component {
       })
     }
 
-    axios.get(global.AppConfig.serverIp + "/pub/product/list_all_product")
-      .then((response) => {
+    axios.get(global.AppConfig.serverIp + "/pub/product/list_all_product",
+     {headers:{"X-Requested-With`": "XMLHttpRequest"}}
+    ).then((response) => {
         console.log("List_All_Products_Response",response.data);
         let sortedProducts = response.data.data.slice().sort((a,b) =>(
           ((a.id < b.id)? 1:-1)

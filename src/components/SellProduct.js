@@ -37,7 +37,7 @@ export default class SellProduct extends Component{
         let session = Cookies.get('react-cookie-test');
         if(session){
             //get categories from server
-            axios.get(global.AppConfig.serverIp+"/pub/category/get_all_category", { withCredentials: true })
+            axios.get(global.AppConfig.serverIp+"/pub/category/get_all_category", {headers:{"X-Requested-With": "XMLHttpRequest"}}, { withCredentials: true })
             .then((response) => {
                 console.log("get_category_Response",response.data);
                 this.setState({
@@ -93,7 +93,7 @@ export default class SellProduct extends Component{
         console.log("form_image", img);
         axios.post(global.AppConfig.serverIp+"/pri/user/sell_product", bodyFormData,
             {
-                headers:{'Content-Type':'application/json'},
+                headers:{'Content-Type':'application/json', "X-Requested-With": "XMLHttpRequest"},
                 withCredentials: true
             }
         )

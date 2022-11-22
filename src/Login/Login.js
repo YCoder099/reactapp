@@ -75,10 +75,7 @@ export default class Login extends Component{
                                     <button>Submit</button>
                                 </div>
                             </form>
-                            <div className="form_text">
-                                <p>Don't have an account? </p>
-                                <a className="form_link" href="/Registration" id="linkCreateAccount">Sign up here</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </main>

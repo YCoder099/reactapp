@@ -91,7 +91,8 @@ export default class SellProduct extends Component{
         bodyFormData.append("file", img);
 
         console.log("form_image", img);
-        axios.post(global.AppConfig.serverIp+"/pri/user/sell_product", bodyFormData，{headers:{"X-Requested-With": "XMLHttpRequest"}},
+        axios.post(global.AppConfig.serverIp+"/pri/user/sell_product", bodyFormData,
+            {headers:{"Content-Type":"application/json", "X-Requested-With": "XMLHttpRequest"}},
             {withCredentials: true}
         )
         .then(response => {

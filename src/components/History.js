@@ -76,7 +76,6 @@ export default class History extends Component {
           <header>
           <a href='/'>Back to home</a>
           <div className='historyButton'>
-          <button className='sellHistoryButton' onClick={this.sellHistory}>Sell History</button>
           <button className='orderHistoryButton' onClick={this.orderHistory}>Order History</button>
           </div>
         </header>

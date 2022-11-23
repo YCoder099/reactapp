@@ -230,7 +230,6 @@ export default class App extends React.Component {
                   <i className="fa fa-caret-down"></i>
                 </button>
                 <div className="dropdown-content">
-                  <a href="/Sell">Sell Product</a>
                   <a href="/History">Order{" & "}Sell History</a>
                   <button className="logout-button" onClick={this.handleAuthButton}>
                     <ExitToAppIcon fontSize="medium"/> 

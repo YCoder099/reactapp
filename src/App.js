@@ -206,7 +206,7 @@ export default class App extends React.Component {
           <></>
         )}
         <header>
-          <a href="/">BestSell</a>
+          <a href="/">CloudShop</a>
           {this.state.isLoggedIn ? (
             <>
             <div className='cart-icon'>

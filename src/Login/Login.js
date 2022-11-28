@@ -53,7 +53,7 @@ export default class Login extends Component{
         return(
             <div className="grid-container">
                 <header>
-                    <a href="/">BestSell</a>
+                    <a href="/">CloudShop</a>
                 </header>
                 <main>
                     <div id="login-outer">
